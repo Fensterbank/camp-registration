@@ -1,0 +1,36 @@
+import './App.css';
+import 'typeface-roboto';
+import 'moment/locale/de';
+
+import { Container, Typography } from '@material-ui/core';
+
+import Form from './Form'
+import React from 'react';
+import { ThemeProvider } from '@material-ui/styles';
+import config from './config.json';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { deDE } from '@material-ui/core/locale';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: config.theme.primary,
+    },
+    secondary: {
+      main: config.theme.secondary,
+    },
+  },
+}, deDE);
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+    <Container maxWidth="md">
+      <Typography variant="h3" component="h1" gutterBottom>{config.title}</Typography>
+      <Form />
+    </Container>
+    </ThemeProvider>
+  );
+}
+
+export default App;

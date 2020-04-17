@@ -1,0 +1,125 @@
+{
+  "kind": "collectionType",
+  "collectionName": "registrations",
+  "info": {
+    "name": "Registration"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "street": {
+      "type": "string",
+      "required": true
+    },
+    "zip": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "birthday": {
+      "type": "date",
+      "required": true
+    },
+    "sex": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "divers"
+      ],
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "mail": {
+      "type": "email"
+    },
+    "shirtSize": {
+      "type": "enumeration",
+      "enum": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "required": true
+    },
+    "additionalContact": {
+      "type": "text"
+    },
+    "legalRepresentative": {
+      "type": "text"
+    },
+    "healthInsurance": {
+      "type": "string",
+      "required": true
+    },
+    "healthInsuranceNo": {
+      "type": "string",
+      "required": true
+    },
+    "healthInsuredWith": {
+      "type": "string"
+    },
+    "allergies": {
+      "type": "text"
+    },
+    "diseases": {
+      "type": "text"
+    },
+    "medication": {
+      "type": "text"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "tentRequest": {
+      "type": "text"
+    },
+    "mealSuggestion": {
+      "type": "string"
+    },
+    "mealType": {
+      "type": "enumeration",
+      "enum": [
+        "vegetarian",
+        "vegan",
+        "no-pork"
+      ]
+    },
+    "goodSwimmer": {
+      "type": "boolean",
+      "required": true
+    },
+    "swimPermit": {
+      "type": "boolean",
+      "required": true
+    },
+    "paid": {
+      "type": "boolean",
+      "default": false,
+      "private": true
+    },
+    "price": {
+      "type": "integer",
+      "private": true
+    }
+  }
+}

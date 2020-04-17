@@ -1,0 +1,19 @@
+.MuiCard-root {
+  margin: 1em 0;
+}
+
+.legal ul {
+  list-style-type: disclosure-closed;
+}
+
+.legal li {
+  margin: 0.5em 0;
+}
+
+form {
+  padding-bottom: 1em;
+}
+
+.legal .MuiCheckbox-root {
+  color: red;
+}
