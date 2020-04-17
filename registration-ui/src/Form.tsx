@@ -1,8 +1,7 @@
-import * as Yup from 'yup';
-
 import { Button, Card, CardContent, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@material-ui/core';
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import React, { memo, useCallback } from 'react';
+import React, { FC, memo, useCallback, useState } from 'react';
+import { genders, initialFieldValues, mealTypes, shirtSizes, validationSchema } from './constants';
 import moment, { Moment } from 'moment';
 
 import Legal from './Legal';
@@ -10,94 +9,62 @@ import MomentUtils from '@date-io/moment';
 import config from './config.json';
 import { useFormik } from 'formik';
 
-const initialFieldValues = {
-  firstName: '',
-  lastName: '',
-  street: '',
-  zip: '',
-  city: '',
-  birthday: moment(config.end).subtract(15, 'years').toISOString(),
-  gender: null,
-  phone: '',
-  mobile: '',
-  mail: '',
-  shirtSize: '',
-  additionalContact: '',
-  legalRepresentative: '',
-  healthInsurance: '',
-  healthInsuranceNo: '',
-  healthInsuredWith: '',
-  allergies: '',
-  diseases: '',
-  medication: '',
-  comment: '',
-  tentRequest: '',
-  mealSuggestion: '',
-  mealType: '-',
-  goodSwimmer: '',
-  swimPermit: '',
-  acceptedLegal: false,
-};
+const axios = require('axios').default;
+
 
 const MemoLegal = memo(Legal)
 const MemoTextField = memo(TextField)
-const genders = [
-  { key: 'male', label: 'Männlich' },
-  { key: 'female', label: 'Weiblich' },
-  { key: 'divers', label: 'Divers' },
-];
 
-const mealTypes = [
-  { key: '-', label: 'Ohne Angabe' },
-  { key: 'vegetarian', label: 'Vegetarisch' },
-  { key: 'vegan', label: 'Vegan' },
-  { key: 'no-pork', label: 'kein Schweinefleisch' },
-];
+interface FormProps {
+  onSubmitted: () => void;
+}
 
-const shirtSizes = [
-  { key: 'S', label: 'S' },
-  { key: 'M', label: 'M' },
-  { key: 'L', label: 'L' },
-  { key: 'XL', label: 'XL' },
-];
-
-const Form = () => {
+const Form: FC<FormProps> = ({ onSubmitted }) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const formik = useFormik({
     initialValues: initialFieldValues,
     isInitialValid: false,
-    validationSchema: Yup.object({
-      firstName: Yup.string().required(),
-      lastName: Yup.string().required(),
-      street: Yup.string().required(),
-      zip: Yup.string().required(),
-      city: Yup.string().required(),
-      birthday: Yup.string().required(),
-      gender: Yup.string().oneOf(genders.map(x => x.key)).required(),
-      phone: Yup.string().notRequired(),
-      mobile: Yup.string().notRequired(),
-      mail: Yup.string().notRequired(),
-      shirtSize: Yup.string().oneOf(shirtSizes.map(x => x.key)).required(),
-      additionalContact: Yup.string().notRequired(),
-      legalRepresentative: Yup.string().notRequired(),
-      healthInsurance: Yup.string().required(),
-      healthInsuranceNo: Yup.string().required(),
-      healthInsuredWith: Yup.string().notRequired(),
-      allergies: Yup.string().notRequired(),
-      diseases: Yup.string().notRequired(),
-      medication: Yup.string().notRequired(),
-      comment: Yup.string().notRequired(),
-      tentRequest: Yup.string().notRequired(),
-      mealSuggestion: Yup.string().notRequired(),
-      mealType: Yup.string().oneOf(mealTypes.map(x => x.key)),
-      goodSwimmer: Yup.string().oneOf(['good', 'less-good']).required(),
-      swimPermit: Yup.string().oneOf(['permit', 'no-permit']).required(),
-      acceptedLegal: Yup.boolean().oneOf([true], 'Bedingungen müssen akzeptiert werden'),
-
-    }),
+    validationSchema: validationSchema,
     onSubmit: values => {
       console.log(values);
+
+      setSubmitting(true);
+      setError(null);
+      axios.post(`${config.apiUrl}/registrations`, {
+        ...values,
+        goodSwimmer: values.goodSwimmer === 'good',
+        swimPermit: values.swimPermit === 'permit',
+        mealType: values.mealType === '-' ? null : values.mealType,
+      })
+        .then(function (response: any) {
+          console.log(response);
+          onSubmitted();
+          setSubmitting(false);
+          resetForm();
+        })
+        .catch(function (error: any) {
+          console.log(error);
+          setError(error.message);
+          setSubmitting(false);
+        })
+
     },
   });
+
+  const resetForm = () => {
+    formik.setValues({
+      ...initialFieldValues,
+      street: '',
+      zip: '',
+      city: '',
+      phone: '',
+      mobile: '',
+      mail: '',
+      additionalContact: '',
+      legalRepresentative: '',
+    })
+  }
 
   const handleFormikChange = useCallback(formik.handleChange, []);
 
@@ -215,7 +182,7 @@ const Form = () => {
               <MemoTextField id="healthInsuranceNo" fullWidth label="Versicherungsnummer" required value={formik.values.healthInsuranceNo} onChange={handleFormikChange} />
             </Grid>
             <Grid item xs={12} md={4}>
-              <MemoTextField id="healthInsurance" fullWidth label="Mitversichert bei" value={formik.values.healthInsuredWith} onChange={handleFormikChange} />
+              <MemoTextField id="healthInsuredWith" fullWidth label="Mitversichert bei" value={formik.values.healthInsuredWith} onChange={handleFormikChange} />
             </Grid>
             <Grid item xs={12} md={12}>
               <MemoTextField id="allergies" fullWidth label="Allergien" value={formik.values.allergies} onChange={handleFormikChange} />
@@ -234,7 +201,8 @@ const Form = () => {
           <MemoLegal onAcceptedChange={(value) => formik.setFieldValue('acceptedLegal', value)} />
         </CardContent>
       </Card>
-      <Button variant="contained" color="primary" type="submit" disabled={!formik.isValid} fullWidth>Anmeldung absenden</Button>
+      <Button variant="contained" color="primary" type="submit" disabled={!formik.isValid || submitting} fullWidth>Anmeldung absenden</Button>
+      {error && <Typography variant="body1" color="error">{error}</Typography>}
     </form>
   )
 }

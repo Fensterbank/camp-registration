@@ -33,7 +33,7 @@
       "type": "date",
       "required": true
     },
-    "sex": {
+    "gender": {
       "type": "enumeration",
       "enum": [
         "male",

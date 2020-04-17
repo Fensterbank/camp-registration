@@ -7,5 +7,6 @@
   "theme": {
     "primary": "#9f714a",
     "secondary": "#999"
-  }
+  },
+  "apiUrl": "http://localhost:1337"
 }
