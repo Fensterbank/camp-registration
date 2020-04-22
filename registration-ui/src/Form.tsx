@@ -6,6 +6,7 @@ import moment, { Moment } from 'moment';
 
 import Legal from './Legal';
 import MomentUtils from '@date-io/moment';
+import Privacy from './Privacy';
 import config from './config.json';
 import { useFormik } from 'formik';
 
@@ -196,9 +197,14 @@ const Form: FC<FormProps> = ({ onSubmitted }) => {
           </Grid>
         </CardContent>
       </Card>
-      <Card>
+      <Card variant="outlined">
         <CardContent>
           <MemoLegal onAcceptedChange={(value) => formik.setFieldValue('acceptedLegal', value)} />
+        </CardContent>
+      </Card>
+      <Card variant="outlined">
+        <CardContent className="privacy">
+          <Privacy />
         </CardContent>
       </Card>
       <Button variant="contained" color="primary" type="submit" disabled={!formik.isValid || submitting} fullWidth>Anmeldung absenden</Button>

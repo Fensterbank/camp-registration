@@ -17,3 +17,11 @@ form {
 .legal .MuiCheckbox-root {
   color: red;
 }
+
+.privacy .MuiTypography-body1 {
+  margin-bottom: 1em;
+}
+
+.mg-bottom {
+  margin-bottom: 1em !important;
+}

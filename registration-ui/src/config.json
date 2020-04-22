@@ -1,9 +1,47 @@
 {
   "title": "Anmeldeformular Boni-Arche-Camp 2020",
+  "information": "Das Boni - Arche - Camp ist ein seit 1987 jährlich in den Sommerferien stattfindendes Zeltlager für Kinder und Jugendliche zwischen neun und 14 Jahren.<br />Veranstalter des Lagers ist die katholische Kirchengemeinde St. Bonifatius in Metzingen.",
+  "facts": [
+    "Gemeinsame Hin- und Rückfahrt mit Zug und/oder Bus",
+    "11 Tage unvergesslichen Spaß in der Natur",
+    "Viele neue Freundschaften",
+    "Vollverpflegung mit gut ausgestatteter Küche und einem erfahrenen Küchenteam",
+    "Erfahrung, neues Wissen und viel Action"
+  ],
   "begin": "2020-08-01",
   "end": "2020-08-11",
   "packday": "2020-07-29",
-  "campground": "Bruchsal",
+  "location": "Bruchsal",
+  "participants": "Mädchen und Jungen im Alter von 9 bis 14 Jahren",
+  "pricing": {
+    "lines": [
+      "200 €",
+      "150 € für das zweite Kind",
+      "130 € für das dritte und jedes weitere Kind"
+    ],
+    "suffix": "Das Gutscheinheft der Stadt Metzingen gewährt eine Ermäßigung von 50% auf den Teilnehmerbeitrag."
+  },
+  "contacts": [
+    {
+      "type": "phone",
+      "label": "Daniel Winter",
+      "value": "0176 - 62497367"
+    },
+    {
+      "type": "phone",
+      "label": "Tobias Harder",
+      "value": "0163 - 9243737"
+    },
+    {
+      "type": "mail",
+      "label": "E-Mail",
+      "value": "info@boni-arche-camp.de"
+    }
+  ],
+  "payment": {
+    "name": "kath. Kirchenpflege Metzingen",
+    "iban": "DE80 6405 9000 0000 9066 78"
+  },
   "theme": {
     "primary": "#9f714a",
     "secondary": "#999"
