@@ -4,18 +4,13 @@ import React, { FC } from 'react';
 import config from './config.json';
 import moment  from 'moment';
 
-interface SuccessMessageProps {
-  onReset: () => void;
-  name: string;
-}
-
 interface Contact {
   type: string;
   label: string;
   value: string;
 }
 
-const Information: FC<SuccessMessageProps> = ({ onReset, name }) => {
+const Information: FC = () => {
   const renderContact = (contact: Contact) => {
     switch (contact.type) {
       case 'phone':

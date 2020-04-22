@@ -17,14 +17,27 @@ const MemoLegal = memo(Legal)
 const MemoTextField = memo(TextField)
 
 interface FormProps {
-  onSubmitted: () => void;
+  onSubmitted: (formData: any) => void;
+  formData?: any,
 }
 
-const Form: FC<FormProps> = ({ onSubmitted }) => {
+const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const formik = useFormik({
-    initialValues: initialFieldValues,
+    initialValues: formData
+      ? {
+        ...initialFieldValues,
+        street: formData.street,
+        zip: formData.zip,
+        city: formData.city,
+        phone: formData.phone,
+        mobile: formData.mobile,
+        mail: formData.mail,
+        additionalContact: formData.additionalContact,
+        legalRepresentative: formData.legalRepresentative,
+      }
+      : initialFieldValues,
     isInitialValid: false,
     validationSchema: validationSchema,
     onSubmit: values => {
@@ -40,9 +53,8 @@ const Form: FC<FormProps> = ({ onSubmitted }) => {
       })
         .then(function (response: any) {
           console.log(response);
-          onSubmitted();
+          onSubmitted(formik.values);
           setSubmitting(false);
-          resetForm();
         })
         .catch(function (error: any) {
           console.log(error);
@@ -52,20 +64,6 @@ const Form: FC<FormProps> = ({ onSubmitted }) => {
 
     },
   });
-
-  const resetForm = () => {
-    formik.setValues({
-      ...initialFieldValues,
-      street: '',
-      zip: '',
-      city: '',
-      phone: '',
-      mobile: '',
-      mail: '',
-      additionalContact: '',
-      legalRepresentative: '',
-    })
-  }
 
   const handleFormikChange = useCallback(formik.handleChange, []);
 
@@ -155,7 +153,7 @@ const Form: FC<FormProps> = ({ onSubmitted }) => {
           <Typography variant="h5" component="h2" gutterBottom>Kontakt</Typography>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
-              <MemoTextField id="mail" fullWidth label="E-Mail" value={formik.values.mail} onChange={handleFormikChange} />
+              <MemoTextField id="mail" type="email" fullWidth label="E-Mail" value={formik.values.mail} onChange={handleFormikChange} />
             </Grid>
             <Grid item xs={12} md={4}>
               <MemoTextField id="mobile" fullWidth label="Mobiltelefon" value={formik.values.mobile} onChange={handleFormikChange} />
@@ -193,6 +191,19 @@ const Form: FC<FormProps> = ({ onSubmitted }) => {
             </Grid>
             <Grid item xs={12} md={12}>
               <MemoTextField id="medication" fullWidth label="Regelmäßig einzunehmende Medikamente" value={formik.values.medication} onChange={handleFormikChange} />
+            </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
+      <Card variant="outlined">
+        <CardContent>
+          <Typography variant="h5" component="h2" gutterBottom>Sonstiges</Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6}>
+              <MemoTextField id="tentRequest" fullWidth label="Zeltwunsch (falls nicht am Vortreff anwesend)" value={formik.values.tentRequest} onChange={handleFormikChange} />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <MemoTextField id="comment" fullWidth label="Kommentar, Anregung, Anmerkung" value={formik.values.comment} onChange={handleFormikChange} />
             </Grid>
           </Grid>
         </CardContent>
