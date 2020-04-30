@@ -40,7 +40,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="md">
-        <Typography variant="h3" component="h1" gutterBottom>{config.title}</Typography>
+        <Typography variant="h4" component="h1" gutterBottom>{config.title}</Typography>
         {!finished && <Information />}
         {!finished && <Form onSubmitted={onSubmitted} formData={registeredPerson} />}
         {finished && <SuccessMessage name={`${registeredPerson.firstName} ${registeredPerson.lastName}`} onReset={onReset} />}

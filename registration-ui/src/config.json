@@ -8,6 +8,10 @@
     "Vollverpflegung mit gut ausgestatteter Küche und einem erfahrenen Küchenteam",
     "Erfahrung, neues Wissen und viel Action"
   ],
+  "alert": {
+    "title": "Zur aktuellen Situation in der Corona-Pandemie",
+    "text": "Die Planungen für das Zeltlager 2020 sind trotz der Corona-Pandemie in vollem Gange und wir hoffen, dass das Zeltlager auch dieses Jahr stattfinden kann. Dazu können wir zum aktuellen Zeitpunkt jedoch keine sichere Aussage treffen.<br /><br /><b>Aufgrund der aktuellen Situation haben wir unsere Stornierungsregelungen angepasst:</b><br />Falls das Zeltlager nicht stattfinden kann, oder falls Sie oder ihr Kind von der Anmeldung zurücktreten möchten (z.B. aus Sicherheitsgründen oder weil das Zeltlager nur in einer anderen als ursprünglich geplanten Form stattfinden kann), wird der <b>gesamte Teilnehmerbetrag</b> vollständig erstattet."
+  },
   "begin": "2020-08-01",
   "end": "2020-08-11",
   "packday": "2020-07-29",
@@ -29,8 +33,8 @@
     },
     {
       "type": "phone",
-      "label": "Tobias Harder",
-      "value": "0163 - 9243737"
+      "label": "Samed Erseymen",
+      "value": "0157 - 82299086"
     },
     {
       "type": "mail",
@@ -46,5 +50,5 @@
     "primary": "#9f714a",
     "secondary": "#999"
   },
-  "apiUrl": "http://localhost:1337"
+  "apiUrl": "https://r-api.boni.camp"
 }

@@ -35,7 +35,6 @@ export const initialFieldValues = {
 export const genders = [
   { key: 'male', label: 'Männlich' },
   { key: 'female', label: 'Weiblich' },
-  { key: 'divers', label: 'Divers' },
 ];
 
 export const mealTypes = [

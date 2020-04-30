@@ -9,7 +9,7 @@ const Privacy = () => {
       Der Server, auf dem die Daten gespeichert werden, befindet sich in einem sicheren Rechenzentrum in Nürnberg.
     </Typography>
     <Typography variant="body1">
-      Für unsere Verwaltungsprozesse und die Durchführung des Zeltlagers ist es unvermeidlich, dass die elektronisch vorliegenden Teilnehmerdaten exportiert und in unverschlüsselter und ausgedruckter Form vorliegen.<br />
+      Für unsere Verwaltungsprozesse und die Durchführung des Zeltlagers ist es unvermeidlich, dass die elektronisch vorliegenden Teilnehmerdaten vor Beginn des Zeltlagers exportiert und in unverschlüsselter und ausgedruckter Form vorliegen.<br />
       Dieses Anmeldeformular ermöglicht Ihnen also das und bequeme Anmelden von Teilnehmerinnen und Teilnehmer, es verändert aber nicht die weiteren üblichen Prozesse.
     </Typography>
     <Typography variant="body1">
