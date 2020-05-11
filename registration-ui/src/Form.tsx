@@ -100,7 +100,8 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
                   value={formik.values.birthday}
                   onChange={handleDateChange}
                   fullWidth
-                  maxDate={moment(config.end).subtract(15, 'years').toISOString()}
+                  minDate={moment(config.end).subtract(15, 'years').toISOString()}
+                  maxDate={moment(config.end).subtract(7, 'years').toISOString()}
                 />
               </MuiPickersUtilsProvider>
             </Grid>
