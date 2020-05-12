@@ -61,7 +61,7 @@ export const validationSchema = Yup.object({
   gender: Yup.string().oneOf(genders.map(x => x.key)).required(),
   phone: Yup.string().notRequired(),
   mobile: Yup.string().notRequired(),
-  mail: Yup.string().notRequired(),
+  mail: Yup.string().required(),
   shirtSize: Yup.string().oneOf(shirtSizes.map(x => x.key)).required(),
   additionalContact: Yup.string().notRequired(),
   legalRepresentative: Yup.string().notRequired(),

@@ -154,7 +154,7 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
           <Typography variant="h5" component="h2" gutterBottom>Kontakt</Typography>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
-              <MemoTextField id="mail" type="email" fullWidth label="E-Mail" value={formik.values.mail} onChange={handleFormikChange} />
+              <MemoTextField id="mail" type="email" required fullWidth label="E-Mail" value={formik.values.mail} onChange={handleFormikChange} />
             </Grid>
             <Grid item xs={12} md={4}>
               <MemoTextField id="mobile" fullWidth label="Mobiltelefon" value={formik.values.mobile} onChange={handleFormikChange} />
