@@ -1,14 +1,12 @@
 import { Button, Card, CardContent, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@material-ui/core';
-import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import React, { FC, memo, useCallback, useState } from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 import { genders, initialFieldValues, mealTypes, shirtSizes, validationSchema } from './constants';
-import moment, { Moment } from 'moment';
 
 import Legal from './Legal';
-import MomentUtils from '@date-io/moment';
 import Privacy from './Privacy';
 import config from './config.json';
 import { useFormik } from 'formik';
+import { parse } from 'date-fns';
 
 const axios = require('axios').default;
 
@@ -38,7 +36,7 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
         legalRepresentative: formData.legalRepresentative,
       }
       : initialFieldValues,
-    isInitialValid: false,
+    validateOnMount: true,
     validationSchema: validationSchema,
     onSubmit: values => {
       console.log(values);
@@ -47,6 +45,7 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
       setError(null);
       axios.post(`${config.apiUrl}/registrations`, {
         ...values,
+        birthday: parse(formik.values.birthday, 'dd.MM.yyyy', new Date()),
         goodSwimmer: values.goodSwimmer === 'good',
         swimPermit: values.swimPermit === 'permit',
         mealType: values.mealType === '-' ? null : values.mealType,
@@ -65,9 +64,7 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
     },
   });
 
-  const handleFormikChange = useCallback(formik.handleChange, []);
-
-  const handleDateChange = (date: Moment | null) => formik.setFieldValue('birthday', date);
+  const handleFormikChange = useCallback(formik.handleChange, [formik]);
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -91,25 +88,13 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
               <MemoTextField id="city" fullWidth label="Stadt" required value={formik.values.city} onChange={handleFormikChange} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils} locale="de">
-                <DatePicker
-                  required
-                  variant="inline"
-                  format="LL"
-                  label="Geburtstag"
-                  value={formik.values.birthday}
-                  onChange={handleDateChange}
-                  fullWidth
-                  minDate={moment(config.end).subtract(15, 'years').toISOString()}
-                  maxDate={moment(config.end).subtract(7, 'years').toISOString()}
-                />
-              </MuiPickersUtilsProvider>
+              <MemoTextField id="birthday" fullWidth label="Geburtstag (dd.mm.yyyy)" required value={formik.values.birthday} onChange={handleFormikChange} />
             </Grid>
             <Grid item xs={12} md={6}>
               <FormControl required component="fieldset">
                 <FormLabel component="legend">Geschlecht</FormLabel>
                 <RadioGroup id="gender" name="gender" value={formik.values.gender} onChange={handleFormikChange}>
-                  {genders.map(x => <FormControlLabel value={x.key} control={<Radio />} label={x.label} />)}
+                  {genders.map(x => <FormControlLabel key={x.key} value={x.key} control={<Radio />} label={x.label} />)}
                 </RadioGroup>
               </FormControl>
             </Grid>
@@ -117,7 +102,7 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
               <FormControl required component="fieldset">
                 <FormLabel component="legend">T-Shirt-Größe</FormLabel>
                 <RadioGroup id="shirtSize" name="shirtSize" value={formik.values.shirtSize} onChange={handleFormikChange}>
-                  {shirtSizes.map(x => <FormControlLabel value={x.key} control={<Radio />} label={x.label} />)}
+                  {shirtSizes.map(x => <FormControlLabel key={x.key} value={x.key} control={<Radio />} label={x.label} />)}
                 </RadioGroup>
               </FormControl>
             </Grid>
@@ -141,7 +126,7 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
               <FormControl component="fieldset">
                 <FormLabel component="legend">Essensgewohnheiten</FormLabel>
                 <RadioGroup id="mealType" name="mealType" value={formik.values.mealType} onChange={handleFormikChange}>
-                  {mealTypes.map(x => <FormControlLabel value={x.key} control={<Radio />} label={x.label} />)}
+                  {mealTypes.map(x => <FormControlLabel key={x.key} value={x.key} control={<Radio />} label={x.label} />)}
                 </RadioGroup>
               </FormControl>
               <MemoTextField id="mealSuggestion" fullWidth label="Essensvorschlag" value={formik.values.mealSuggestion} onChange={handleFormikChange} />

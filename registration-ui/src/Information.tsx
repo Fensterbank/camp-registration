@@ -1,9 +1,9 @@
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { Card, CardContent, Grid, Typography } from '@material-ui/core';
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 
 import config from './config.json';
-import moment from 'moment';
+import { format } from 'date-fns';
 
 interface Contact {
   type: string;
@@ -15,15 +15,15 @@ const Information: FC = () => {
   const renderContact = (contact: Contact) => {
     switch (contact.type) {
       case 'phone':
-        return <>
+        return <Fragment key={contact.label}>
           <Grid item xs={12} md={6}><Typography variant="body2">{contact.label}</Typography></Grid>
           <Grid item xs={12} md={6}><Typography variant="body2" gutterBottom>{contact.value}</Typography></Grid>
-        </>;
+        </Fragment>;
       case 'mail':
-        return <>
+        return <Fragment key={contact.label}>
           <Grid item xs={12} md={6}><Typography variant="body2">{contact.label}</Typography></Grid>
           <Grid item xs={12} md={6}><Typography variant="body2" gutterBottom><a href={`mailto:${contact.value}`}>{contact.value}</a></Typography></Grid>
-        </>;
+        </Fragment>;
     }
   }
 
@@ -32,7 +32,7 @@ const Information: FC = () => {
       <Typography variant="body1"><div dangerouslySetInnerHTML={{ __html: config.information }} /></Typography>
       <Typography variant="body1">
         <ul>
-          {config.facts.map(fact => <li>{fact}</li>)}
+          {config.facts.map(fact => <li key={fact}>{fact}</li>)}
         </ul>
       </Typography>
       <Grid container>
@@ -46,13 +46,13 @@ const Information: FC = () => {
           <Typography variant="subtitle2">Zeitraum:</Typography>
         </Grid>
         <Grid item xs={12} md={8}>
-          <Typography variant="body2" gutterBottom>{moment(config.begin).format('LL')} bis {moment(config.end).format('LL')}</Typography>
+          <Typography variant="body2" gutterBottom>{format(new Date(config.begin), 'PP')} bis {format(new Date(config.end), 'PP')}</Typography>
         </Grid>
         <Grid item xs={12} md={4}>
           <Typography variant="subtitle2">Packtag:</Typography>
         </Grid>
         <Grid item xs={12} md={8}>
-          <Typography variant="body2" gutterBottom>{moment(config.packday).format('LL')}</Typography>
+          <Typography variant="body2" gutterBottom>{format(new Date(config.packday), 'PP')}</Typography>
         </Grid>
         <Grid item xs={12} md={4}>
           <Typography variant="subtitle2">Ort:</Typography>
@@ -64,7 +64,7 @@ const Information: FC = () => {
           <Typography variant="subtitle2">Teilnehmerbeitrag:</Typography>
         </Grid>
         <Grid item xs={12} md={8}>
-          {config.pricing.lines.map(line => <Typography variant="body2">{line}<br /></Typography>)}
+          {config.pricing.lines.map(line => <Typography key={line} variant="body2">{line}<br /></Typography>)}
           {config.pricing.suffix && <Typography variant="caption" component="p" className="mg-bottom"><br />{config.pricing.suffix}</Typography>}
         </Grid>
         <Grid item xs={12} md={4}>

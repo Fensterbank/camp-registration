@@ -19,13 +19,13 @@ const Legal: FC<LegalProps> = ({ onAcceptedChange }) => {
       acc3: false,
       acc4: false,
     },
-    isInitialValid: false,
     validationSchema: Yup.object({
       acc1: Yup.boolean().oneOf([true], 'Muss akzeptiert werden'),
       acc2: Yup.boolean().oneOf([true], 'Muss akzeptiert werden'),
       acc3: Yup.boolean().oneOf([true], 'Muss akzeptiert werden'),
       acc4: Yup.boolean().oneOf([true], 'Muss akzeptiert werden'),
     }),
+    validateOnMount: true,
     onSubmit: () => { }
   });
 

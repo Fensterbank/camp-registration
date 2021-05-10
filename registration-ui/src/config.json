@@ -50,5 +50,5 @@
     "primary": "#9f714a",
     "secondary": "#999"
   },
-  "apiUrl": "https://r-api.boni.camp"
+  "apiUrl": "http://localhost:1337"
 }

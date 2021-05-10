@@ -1,6 +1,5 @@
 import './App.css';
 import 'typeface-roboto';
-import 'moment/locale/de';
 
 import { Container, Typography } from '@material-ui/core';
 import React, { useState } from 'react';

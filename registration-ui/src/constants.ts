@@ -1,15 +1,12 @@
 import * as Yup from 'yup';
 
-import config from './config.json';
-import moment from 'moment';
-
 export const initialFieldValues = {
   firstName: '',
   lastName: '',
   street: '',
   zip: '',
   city: '',
-  birthday: moment(config.end).subtract(15, 'years').toISOString(),
+  birthday: '',
   gender: null,
   phone: '',
   mobile: '',
