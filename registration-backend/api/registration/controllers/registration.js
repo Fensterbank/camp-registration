@@ -12,8 +12,16 @@ module.exports = {
     const entity = await strapi.services.registration.create(ctx.request.body)
     strapi.plugins['email'].services.email.sendTemplatedEmail(
       {
-        bcc: process.env.ADMIN_MAIL,
         to: entity.mail,
+      },
+      registerConfirmation,
+      {
+        name: `${entity.firstName} ${entity.lastName}`,
+      },
+    );
+    strapi.plugins['email'].services.email.sendTemplatedEmail(
+      {
+        to: process.env.ADMIN_MAIL,
       },
       registerConfirmation,
       {
