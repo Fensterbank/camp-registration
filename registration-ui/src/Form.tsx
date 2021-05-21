@@ -39,8 +39,6 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
     validateOnMount: true,
     validationSchema: validationSchema,
     onSubmit: values => {
-      console.log(values);
-
       setSubmitting(true);
       setError(null);
       axios.post(`${config.apiUrl}/registrations`, {
@@ -51,7 +49,6 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
         mealType: values.mealType === '-' ? null : values.mealType,
       })
         .then(function (response: any) {
-          console.log(response);
           onSubmitted(formik.values);
           setSubmitting(false);
         })

@@ -1,6 +1,6 @@
 {
-  "title": "Anmeldeformular Boni-Arche-Camp 2020",
-  "information": "Das Boni - Arche - Camp ist ein seit 1987 jährlich in den Sommerferien stattfindendes Zeltlager für Kinder und Jugendliche zwischen neun und 14 Jahren.<br />Veranstalter des Lagers ist die katholische Kirchengemeinde St. Bonifatius in Metzingen.",
+  "title": "Anmeldeformular Boni-Arche-Camp 2021",
+  "information": "Das Boni - Arche - Camp ist ein seit 1987 in den Sommerferien stattfindendes Zeltlager für Kinder und Jugendliche zwischen neun und 14 Jahren.<br />Veranstalter des Lagers ist die katholische Kirchengemeinde St. Bonifatius in Metzingen.",
   "facts": [
     "Gemeinsame Hin- und Rückfahrt mit Zug und/oder Bus",
     "11 Tage unvergesslichen Spaß in der Natur",
@@ -10,12 +10,12 @@
   ],
   "alert": {
     "title": "Zur aktuellen Situation in der Corona-Pandemie",
-    "text": "Die Planungen für das Zeltlager 2020 sind trotz der Corona-Pandemie in vollem Gange und wir hoffen, dass das Zeltlager auch dieses Jahr stattfinden kann. Dazu können wir zum aktuellen Zeitpunkt jedoch keine sichere Aussage treffen.<br /><br /><b>Aufgrund der aktuellen Situation haben wir unsere Zahlungs- und Stornierungsregelungen angepasst:</b><br />Eine Bezahlung ist nicht vor 30.06. notwendig, da sich der Teilnehmerbetrag ggf. verringern kann (falls das Lager z.B. ohne Übernachtung oder in anderer Form stattfindet) oder das Lager ganz ausfallen kann.<br />Wenn der Betrag bereits bezahlt wurde, das Zeltlager aber nicht stattfinden kann, oder falls Sie oder ihr Kind von der Anmeldung zurücktreten möchten (z.B. aus Sicherheitsgründen oder weil das Zeltlager nur in einer anderen als ursprünglich geplanten Form stattfinden kann), wird der <b>gesamte Teilnehmerbetrag</b> vollständig erstattet.<br /><br />Über die weitere Entwicklung werden wir Sie per E-Mail informieren."
+    "text": "Die Planungen für das Zeltlager 2021 sind trotz der Corona-Pandemie in vollem Gange und wir hoffen, dass das Zeltlager auch dieses Jahr stattfinden kann. Dazu können wir zum aktuellen Zeitpunkt jedoch keine sichere Aussage treffen.<br /><br /><b>Aufgrund der aktuellen Situation haben wir unsere Zahlungs- und Stornierungsregelungen angepasst:</b><br />Eine Bezahlung ist nicht vor 15.06. notwendig, da sich der Teilnehmerbetrag ggf. verringern kann (falls das Lager z.B. ohne Übernachtung oder in anderer Form stattfindet) oder das Lager ganz ausfallen kann.<br />Wenn der Betrag bereits bezahlt wurde, das Zeltlager aber nicht stattfinden kann, oder falls Sie oder ihr Kind von der Anmeldung zurücktreten möchten (z.B. aus Sicherheitsgründen oder weil das Zeltlager nur in einer anderen als ursprünglich geplanten Form stattfinden kann), wird der <b>gesamte Teilnehmerbetrag</b> vollständig erstattet.<br /><br />Über die weitere Entwicklung werden wir Sie per E-Mail informieren."
   },
-  "begin": "2020-08-01",
-  "end": "2020-08-11",
-  "packday": "2020-07-29",
-  "location": "Bruchsal",
+  "begin": "2021-08-01",
+  "end": "2021-08-11",
+  "packday": "2021-07-29",
+  "location": "Kißlegg im Allgäu",
   "participants": "Mädchen und Jungen im Alter von 9 bis 14 Jahren",
   "pricing": {
     "lines": [
@@ -33,8 +33,8 @@
     },
     {
       "type": "phone",
-      "label": "Samed Erseymen",
-      "value": "0157 - 82299086"
+      "label": "Tobias Harder",
+      "value": "0157 - 86190123"
     },
     {
       "type": "mail",
@@ -50,5 +50,5 @@
     "primary": "#9f714a",
     "secondary": "#999"
   },
-  "apiUrl": "http://localhost:1337"
+  "apiUrl": "https://r-api.boni.camp"
 }
