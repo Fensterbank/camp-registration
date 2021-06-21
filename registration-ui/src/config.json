@@ -34,7 +34,7 @@
     {
       "type": "phone",
       "label": "Tobias Harder",
-      "value": "0157 - 86190123"
+      "value": "0163 - 9243737"
     },
     {
       "type": "mail",
@@ -44,7 +44,7 @@
   ],
   "payment": {
     "name": "Kath. Kirchenpflege Metzingen",
-    "iban": "DE80 6405 9000 0000 9066 78"
+    "iban": "DE80 6405 0000 0000 9066 78"
   },
   "theme": {
     "primary": "#9f714a",
