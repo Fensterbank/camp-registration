@@ -68,6 +68,16 @@ const Information: FC = () => {
           {config.pricing.suffix && <Typography variant="caption" component="p" className="mg-bottom"><br />{config.pricing.suffix}</Typography>}
         </Grid>
         <Grid item xs={12} md={4}>
+          <Typography variant="subtitle2">Bezahlung:</Typography>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <Typography variant="body2" gutterBottom>
+            <b>{config.payment.name}</b><br />
+            IBAN: {config.payment.iban}<br />
+            Betreff: "Anmeldung mit Name des Kindes"
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={4}>
           <Typography variant="subtitle2">Kontakt:</Typography>
         </Grid>
         <Grid item xs={12} md={8}>
