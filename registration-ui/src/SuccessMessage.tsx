@@ -13,7 +13,7 @@ const SuccessMessage: FC<SuccessMessageProps> = ({ name, onReset }) => {
     <CardContent>
     <Typography variant="h5" component="h2" gutterBottom>Anmeldung gespeichert</Typography>
     <Typography variant="body1" gutterBottom>Ihre Anmeldung wurde gespeichert.</Typography>
-    <Typography variant="body1" gutterBottom>Wenn das weitere Vorgehen im Hinblick auf die Corona-Pandemie klar ist, können Sie ab dem 30.06. den fälligen Betrag unter Angabe des Betreffs »Anmeldung {name}« an folgendes Konto überweisen:</Typography>
+    <Typography variant="body1" gutterBottom>Bitte überweisen Sie den fälligen Betrag unter Angabe des Betreffs »Anmeldung {name}« an folgendes Konto:</Typography>
     <Typography variant="body1" gutterBottom>
        <b>{config.payment.name}</b><br />
        IBAN: {config.payment.iban}

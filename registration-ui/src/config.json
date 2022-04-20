@@ -1,5 +1,5 @@
 {
-  "title": "Anmeldeformular Boni-Arche-Camp 2021",
+  "title": "Anmeldeformular Boni-Arche-Camp 2022",
   "information": "Das Boni - Arche - Camp ist ein seit 1987 in den Sommerferien stattfindendes Zeltlager für Kinder und Jugendliche zwischen neun und 14 Jahren.<br />Veranstalter des Lagers ist die katholische Kirchengemeinde St. Bonifatius in Metzingen.",
   "facts": [
     "Gemeinsame Hin- und Rückfahrt mit Zug und/oder Bus",
@@ -10,31 +10,31 @@
   ],
   "alert": {
     "title": "Zur aktuellen Situation in der Corona-Pandemie",
-    "text": "Die Planungen für das Zeltlager 2021 sind trotz der Corona-Pandemie in vollem Gange und wir hoffen, dass das Zeltlager auch dieses Jahr stattfinden kann. Dazu können wir zum aktuellen Zeitpunkt jedoch keine sichere Aussage treffen.<br /><br /><b>Aufgrund der aktuellen Situation haben wir unsere Zahlungs- und Stornierungsregelungen angepasst:</b><br />Eine Bezahlung ist nicht vor 15.06. notwendig, da sich der Teilnehmerbetrag ggf. verringern kann (falls das Lager z.B. ohne Übernachtung oder in anderer Form stattfindet) oder das Lager ganz ausfallen kann.<br />Wenn der Betrag bereits bezahlt wurde, das Zeltlager aber nicht stattfinden kann, oder falls Sie oder ihr Kind von der Anmeldung zurücktreten möchten (z.B. aus Sicherheitsgründen oder weil das Zeltlager nur in einer anderen als ursprünglich geplanten Form stattfinden kann), wird der <b>gesamte Teilnehmerbetrag</b> vollständig erstattet.<br /><br />Über die weitere Entwicklung werden wir Sie per E-Mail informieren."
+    "text": "Die Planungen für das Zeltlager 2022 sind trotz der Corona-Pandemie in vollem Gange und wir hoffen, dass das Zeltlager auch dieses Jahr stattfinden kann. Dazu können wir zum aktuellen Zeitpunkt jedoch keine sichere Aussage treffen.<br /><br /><b>Aufgrund der aktuellen Situation haben wir unsere Zahlungs- und Stornierungsregelungen angepasst:</b><br />Wenn der Betrag bereits bezahlt wurde, das Zeltlager aber nicht stattfinden kann, oder falls Sie oder ihr Kind von der Anmeldung zurücktreten möchten (z.B. weil das Zeltlager nur in einer anderen als ursprünglich geplanten Form stattfinden kann), wird der <b>gesamte Teilnehmerbetrag</b> vollständig erstattet.<br /><br />Über eventuelle Entwicklungen werden wir Sie per E-Mail informieren."
   },
-  "begin": "2021-08-01",
-  "end": "2021-08-11",
-  "packday": "2021-07-29",
+  "begin": "2022-07-30",
+  "end": "2022-08-09",
+  "packday": "2022-07-27",
   "location": "Kißlegg im Allgäu",
   "participants": "Mädchen und Jungen im Alter von 9 bis 14 Jahren",
   "pricing": {
     "lines": [
-      "200 €",
-      "150 € für das zweite Kind",
-      "130 € für das dritte und jedes weitere Kind"
+      "300 €",
+      "225 € für das zweite Kind",
+      "195 € für das dritte und jedes weitere Kind"
     ],
     "suffix": "Das Gutscheinheft der Stadt Metzingen gewährt eine Ermäßigung von 50% auf den Teilnehmerbeitrag."
   },
   "contacts": [
     {
       "type": "phone",
-      "label": "Daniel Winter",
-      "value": "0176 - 62497367"
+      "label": "Thomas Letzgus",
+      "value": "0152 - 23474342"
     },
     {
       "type": "phone",
-      "label": "Tobias Harder",
-      "value": "0163 - 9243737"
+      "label": "Leonard May",
+      "value": "0157 - 87075844"
     },
     {
       "type": "mail",
