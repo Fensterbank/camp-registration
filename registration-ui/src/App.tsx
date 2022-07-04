@@ -11,6 +11,8 @@ import { ThemeProvider } from '@material-ui/styles';
 import config from './config.json';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { deDE } from '@material-ui/core/locale';
+import { endOfDay, isAfter, parseISO } from 'date-fns';
+import RegistrationClosed from './RegistrationClosed';
 
 const theme = createMuiTheme({
   palette: {
@@ -22,6 +24,8 @@ const theme = createMuiTheme({
     },
   },
 }, deDE);
+
+const registrationEnd = config.registrationEnd ? endOfDay(parseISO(config.registrationEnd)) : null
 
 function App() {
   const [finished, setFinished] = useState(false);
@@ -36,13 +40,25 @@ function App() {
     setFinished(false);
   }
 
+  const renderContent = () => {
+    if (registrationEnd && isAfter(new Date(), registrationEnd))
+      return <>
+        <Information />
+        <RegistrationClosed />
+      </>
+
+    return <>
+      {!finished && <Information />}
+      {!finished && <Form onSubmitted={onSubmitted} formData={registeredPerson} />}
+      {finished && <SuccessMessage name={`${registeredPerson.firstName} ${registeredPerson.lastName}`} onReset={onReset} />}
+    </>
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="md">
         <Typography variant="h4" component="h1" gutterBottom>{config.title}</Typography>
-        {!finished && <Information />}
-        {!finished && <Form onSubmitted={onSubmitted} formData={registeredPerson} />}
-        {finished && <SuccessMessage name={`${registeredPerson.firstName} ${registeredPerson.lastName}`} onReset={onReset} />}
+        {renderContent()}
       </Container>
     </ThemeProvider>
   );
