@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/registrations/xlsx",
+      "handler": "registration.export",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/registrations/count",
       "handler": "registration.count",
       "config": {
