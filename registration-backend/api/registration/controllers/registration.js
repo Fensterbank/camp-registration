@@ -33,7 +33,9 @@ module.exports = {
     return entity;
   },
   async export(ctx) {
+    const { query } = ctx;
     const results = await strapi.services.registration.find({
+      ...query,
       _limit: -1,
       _sort: 'lastName:asc,firstName:asc',
     }, [])
