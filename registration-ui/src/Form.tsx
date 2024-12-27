@@ -103,7 +103,8 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
               </FormControl>
             </Grid>
             <Grid item xs={12} md={5}>
-              <FormControl component="fieldset">
+              <FormControl required component="fieldset">
+                <FormLabel component="legend">Schwimmen</FormLabel>
                 <RadioGroup id="swimPermit" name="swimPermit" value={formik.values.swimPermit} onChange={handleFormikChange}>
                   <FormControlLabel value="permit" label="darf schwimmen" control={<Radio />} />
                   <FormControlLabel value="no-permit" label="darf nicht schwimmen" control={<Radio />} />
