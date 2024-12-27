@@ -104,10 +104,6 @@
         "no-pork"
       ]
     },
-    "goodSwimmer": {
-      "type": "boolean",
-      "required": true
-    },
     "swimPermit": {
       "type": "boolean",
       "required": true

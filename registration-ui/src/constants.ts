@@ -24,7 +24,6 @@ export const initialFieldValues = {
   tentRequest: '',
   mealSuggestion: '',
   mealType: '-',
-  goodSwimmer: '',
   swimPermit: '',
   acceptedLegal: false,
 };
@@ -72,7 +71,6 @@ export const validationSchema = Yup.object({
   tentRequest: Yup.string().notRequired(),
   mealSuggestion: Yup.string().notRequired(),
   mealType: Yup.string().oneOf(mealTypes.map(x => x.key)),
-  goodSwimmer: Yup.string().oneOf(['good', 'less-good']).required(),
   swimPermit: Yup.string().oneOf(['permit', 'no-permit']).required(),
   acceptedLegal: Yup.boolean().oneOf([true], 'Bedingungen müssen akzeptiert werden'),
 });
