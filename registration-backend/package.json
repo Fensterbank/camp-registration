@@ -14,17 +14,17 @@
     "date-fns": "^2.28.0",
     "knex": "0.21.18",
     "mysql": "2.18.1",
-    "strapi": "3.6.10",
-    "strapi-admin": "3.6.10",
-    "strapi-connector-bookshelf": "3.6.10",
-    "strapi-plugin-content-manager": "3.6.10",
-    "strapi-plugin-content-type-builder": "3.6.10",
-    "strapi-plugin-email": "3.6.10",
-    "strapi-plugin-i18n": "3.6.10",
-    "strapi-plugin-upload": "3.6.10",
-    "strapi-plugin-users-permissions": "3.6.10",
-    "strapi-provider-email-nodemailer": "^3.6.10",
-    "strapi-utils": "3.6.10",
+    "strapi": "3.6.11",
+    "strapi-admin": "3.6.11",
+    "strapi-connector-bookshelf": "3.6.11",
+    "strapi-plugin-content-manager": "3.6.11",
+    "strapi-plugin-content-type-builder": "3.6.11",
+    "strapi-plugin-email": "3.6.11",
+    "strapi-plugin-i18n": "3.6.11",
+    "strapi-plugin-upload": "3.6.11",
+    "strapi-plugin-users-permissions": "3.6.11",
+    "strapi-provider-email-nodemailer": "^3.6.11",
+    "strapi-utils": "3.6.11",
     "xlsx": "^0.18.5"
   },
   "author": {
@@ -34,7 +34,7 @@
     "uuid": "96dbc8a4-4d17-4f69-b786-ea463efedd37"
   },
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
+    "node": ">=10.16.0 <=16.x.x",
     "npm": "^6.0.0"
   },
   "license": "MIT"

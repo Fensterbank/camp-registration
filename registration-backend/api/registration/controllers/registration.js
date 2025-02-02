@@ -96,7 +96,7 @@ module.exports = {
       { wch: 20 },
     ]
     utils.book_append_sheet(wb, ws, 'Anmeldungen');
-    ctx.set('Content-Type', 'application/pdf')
+    ctx.set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
 
     const data = await write(wb, {
       type: 'binary',

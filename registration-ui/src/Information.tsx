@@ -1,6 +1,7 @@
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import React, { FC, Fragment } from 'react';
+import { endOfDay, isAfter, parseISO } from 'date-fns';
 
 import config from './config.json';
 import { format } from 'date-fns';
@@ -12,6 +13,8 @@ interface Contact {
 }
 
 const Information: FC = () => {
+  const registrationEnd = config.registrationEnd ? endOfDay(parseISO(config.registrationEnd)) : null
+
   const renderContact = (contact: Contact) => {
     switch (contact.type) {
       case 'phone':
@@ -49,12 +52,6 @@ const Information: FC = () => {
           <Typography variant="body2" gutterBottom>{format(new Date(config.begin), 'PP')} bis {format(new Date(config.end), 'PP')}</Typography>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Typography variant="subtitle2">Packtag:</Typography>
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <Typography variant="body2" gutterBottom>{format(new Date(config.packday), 'PP')}</Typography>
-        </Grid>
-        <Grid item xs={12} md={4}>
           <Typography variant="subtitle2">Ort:</Typography>
         </Grid>
         <Grid item xs={12} md={8}>
@@ -86,9 +83,9 @@ const Information: FC = () => {
           </Grid>
         </Grid>
       </Grid>
-      {config.alert && <Alert severity="warning">
-        <AlertTitle>{config.alert.title}</AlertTitle>
-        <div dangerouslySetInnerHTML={{ __html: config.alert.text }} />
+      {config.alert && !(registrationEnd && isAfter(new Date(), registrationEnd)) && <Alert severity="warning">
+        <AlertTitle>{(config.alert as any).title}</AlertTitle>
+        <div dangerouslySetInnerHTML={{ __html: (config.alert as any).text }} />
       </Alert>}
     </CardContent>
   </Card>
