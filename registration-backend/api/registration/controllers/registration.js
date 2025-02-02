@@ -63,7 +63,6 @@ module.exports = {
       'Zeltwunsch': r.tentRequest,
       'Essenswunsch': r.mealSuggestion,
       'Essenstyp': r.mealType,
-      'Guter Schwimmer': r.goodSwimmer,
       'Darf Schwimmen': r.swimPermit,
       'Anmeldedatum': r.created_at,
     }))
@@ -91,7 +90,6 @@ module.exports = {
       { wch: 20 },
       { wch: 20 },
       { wch: 20 },
-      { wch: 15 },
       { wch: 15 },
       { wch: 15 },
       { wch: 15 },

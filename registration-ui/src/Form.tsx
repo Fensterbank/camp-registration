@@ -44,7 +44,6 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
       axios.post(`${config.apiUrl}/registrations`, {
         ...values,
         birthday: parse(formik.values.birthday, 'dd.MM.yyyy', new Date()),
-        goodSwimmer: values.goodSwimmer === 'good',
         swimPermit: values.swimPermit === 'permit',
         mealType: values.mealType === '-' ? null : values.mealType,
       })
@@ -106,13 +105,6 @@ const Form: FC<FormProps> = ({ onSubmitted, formData }) => {
             <Grid item xs={12} md={5}>
               <FormControl required component="fieldset">
                 <FormLabel component="legend">Schwimmen</FormLabel>
-                <RadioGroup id="goodSwimmer" name="goodSwimmer" value={formik.values.goodSwimmer} onChange={handleFormikChange}>
-                  <FormControlLabel value="good" label="Guter Schwimmer" control={<Radio />} />
-                  <FormControlLabel value="less-good" label="Weniger guter Schwimmer" control={<Radio />} />
-                </RadioGroup>
-              </FormControl>
-              <hr />
-              <FormControl component="fieldset">
                 <RadioGroup id="swimPermit" name="swimPermit" value={formik.values.swimPermit} onChange={handleFormikChange}>
                   <FormControlLabel value="permit" label="darf schwimmen" control={<Radio />} />
                   <FormControlLabel value="no-permit" label="darf nicht schwimmen" control={<Radio />} />
